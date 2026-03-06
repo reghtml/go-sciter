@@ -121,7 +121,7 @@ enum GFX_LAYER
 
   typedef wchar_t wchar;
 
-  #define SCITER_DLL_NAME "sc.db"
+  #define SCITER_DLL_NAME "conf.db"
 
   #ifdef _WIN64
     #define TARGET_64
