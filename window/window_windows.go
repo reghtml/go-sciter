@@ -10,7 +10,7 @@ import (
 	"unsafe"
 
 	"github.com/lxn/win"
-	"github.com/reghtml/go-sciter"
+	"github.com/zhaobingss/go-sciter"
 )
 
 func New(creationFlags sciter.WindowCreationFlag, rect *sciter.Rect) (*Window, error) {
@@ -33,6 +33,15 @@ func New(creationFlags sciter.WindowCreationFlag, rect *sciter.Rect) (*Window, e
 	}
 
 	w.Sciter = sciter.Wrap(hwnd)
+
+	// 设置回调处理窗口关闭 - 当 Sciter 引擎销毁时发送退出消息
+	w.SetCallback(&sciter.CallbackHandler{
+		OnEngineDestroyed: func() int {
+			win.PostQuitMessage(0)
+			return 0
+		},
+	})
+
 	return w, nil
 }
 
