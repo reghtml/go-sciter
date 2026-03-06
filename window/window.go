@@ -1,22 +1,22 @@
 package window
 
 import (
-    "runtime"
+	"runtime"
 
-    "github.com/zhaobingss/go-sciter"
+	"github.com/reghtml/go-sciter"
 )
 
 type Window struct {
-    *sciter.Sciter
-    creationFlags sciter.WindowCreationFlag
+	*sciter.Sciter
+	creationFlags sciter.WindowCreationFlag
 }
 
 func (w *Window) run() {
-    // runtime.LockOSThread()
+	// runtime.LockOSThread()
 }
 
 // https://github.com/golang/go/wiki/LockOSThread
-// https://github.com/zhaobingss/go-sciter/issues/201
+// https://github.com/reghtml/go-sciter/issues/201
 func init() {
-    runtime.LockOSThread()
+	runtime.LockOSThread()
 }
